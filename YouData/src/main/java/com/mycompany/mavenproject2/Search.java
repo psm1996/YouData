@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.mavenproject2;
-
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.services.samples.youtube.cmdline.Auth;
@@ -20,6 +14,8 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -32,24 +28,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
-//import org.json.*;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Arrays;
 
-/**
- *
- * @author lokesh
- */
 public class Search {
     private static YouTube youtube;
-    private static final long NUMBER_OF_VIDEOS_RETURNED = 25;
+    private static final long NUMBER_OF_VIDEOS_RETURNED = 5;
     private static String apiKey="AIzaSyAvqnZR83EzZaIAXGPFLXUIUyAz5DX1FL4";
-    public static String videofile="/home/lokesh/Documents/ran.txt";
-    public static String datasetfile="/home/lokesh/Documents/VideoDataset.txt";
-    public static String commentsDataset="/home/lokesh/Documents/CommentsDataset.txt";
+    public static String videofile="C:\\Users\\soumy\\Desktop\\ran.txt";
+    public static String datasetfile="C:\\Users\\soumy\\Desktop\\VideoDataset.txt";
+    public static String commentsDataset="C:\\Users\\soumy\\Desktop\\CommentsDataset.txt"; 
     public static FileOutputStream commentStream;
-    
+    public static String mainPath = "C:\\Users\\soumy\\AppData\\Local\\Programs\\Python\\Python36\\python";
     
     public static void main(String[] args) throws IOException{
 //        System.out.println("Working");
+//        SearchPage sp = new SearchPage();
+//        sp.setVisible(true);
+        BranchWise world = new BranchWise();
+        world.setVisible(true);
+//        SearchPage page = new SearchPage();
+//        page.setVisible(true)
         Properties properties=new Properties();
         youtube=new YouTube.Builder(Auth.HTTP_TRANSPORT,Auth.JSON_FACTORY, (HttpRequest request) -> {
         }).setApplicationName("youtube-cmdline-search-sample").build();
@@ -70,15 +70,52 @@ public class Search {
             System.err.println("No. of results= "+searchResultList.size());
             if(searchResultList!=null){
                 prettyPrint(searchResultList.iterator(), queryTerm);
+                work();
             }
         } catch (IOException ex) {
             Logger.getLogger(Search.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-        
-        
     }
-
+    
+    private static void work() throws IOException{
+        String pythonScriptPath = "C:\\Users\\soumy\\.idea\\keyword_extraction.py";
+        String classificationPath = "C:\\Users\\soumy\\Desktop\\sentiment_analysis.py";
+        String[] cmd = {mainPath,pythonScriptPath};
+        String[] commd = {mainPath,classificationPath};
+                ProcessBuilder pb = new ProcessBuilder(cmd);
+                ProcessBuilder pb2 = new ProcessBuilder(commd);
+                String fileName = "C://Users//soumy//Desktop//CommentsDataset.txt";
+                File file = new File(fileName);
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                String line;
+                   while((line = br.readLine()) != null){ 
+                     List<String> elephantList = Arrays.asList(line.split("\t"));
+                     Process p = pb2.start();
+                     OutputStream os = p.getOutputStream();
+                     PrintStream ps = new PrintStream(os);
+                     ps.println(elephantList.get(1));
+                     ps.flush();
+                     BufferedReader brm = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                     String cOutput;
+                        while((cOutput = brm.readLine()) != null)
+                          { if (cOutput != "")
+                            { System.out.println(cOutput);
+                              Process p2 = pb.start();
+                              OutputStream st = p2.getOutputStream();
+                              PrintStream pst = new PrintStream(st);
+                              pst.println(cOutput);
+                              pst.flush();
+                              BufferedReader brim = new BufferedReader(new InputStreamReader(p2.getInputStream()));
+                              String keywords;
+                                while((keywords = brim.readLine()) != null){
+                                    System.out.println(keywords);
+                                }
+                            }
+                          }
+                     }        
+    }
+    
     private static String getInputQuery() throws IOException{
         String inputQuery="";
         System.out.println("Please enter a search item");
@@ -86,11 +123,11 @@ public class Search {
         inputQuery=bReader.readLine();
         
         if(inputQuery.length()<1){
-            inputQuery="Avengers end game";
+            inputQuery="Avengers";
         }
         return inputQuery;
     }
-
+            
     private static void prettyPrint(Iterator<SearchResult> iterator, String query) {
         System.out.println("\n=============================================================");
         System.out.println(
@@ -111,7 +148,7 @@ public class Search {
             datasetOutputStream.write(stringToBytes);
             
             commentStream=new FileOutputStream(commentsDataset);
-            String comRow="videoId,textOriginal,likeCount,publishedAt,totalReplyCount\n";
+            String comRow="videoId"+"\t"+"textOriginal"+"\t"+"likeCount"+"\t"+"publishedAt"+"\t"+"totalReplyCount\n";
             commentStream.write(comRow.getBytes());
             
             FileWriter fw=new FileWriter(datasetfile,true);
@@ -177,7 +214,7 @@ public class Search {
         }catch(Exception e){
             System.out.print(e+" error");
         }
-
+ 
     }
 
     private static void commentParsing (String videoId) {
@@ -204,8 +241,12 @@ public class Search {
                     try{
                         JSONObject obj2=array.getJSONObject(i).getJSONObject("snippet");
                         JSONObject obj21=obj2.getJSONObject("topLevelComment").getJSONObject("snippet");
-                        row=obj2.get("videoId")+","+obj21.get("textOriginal")+","+
-                            obj21.get("likeCount")+","+obj21.get("publishedAt")+
+                        String x = obj21.get("textOriginal")+"";
+                        x = x.replace('\n',' ');
+                        x = x.replace(',',' ');
+                        
+                        row=obj2.get("videoId")+"\t"+ x + "\t"+
+                            obj21.get("likeCount")+"\t"+obj21.get("publishedAt")+"\t"+
                                     obj2.get("totalReplyCount")+"\n";
 //                      System.out.println(row);
                         commentStream.write(row.getBytes());
