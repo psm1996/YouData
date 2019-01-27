@@ -550,9 +550,11 @@ if (x.equals("CSE") || x.equals("IT") || x.equals("ECE") || x.equals("EE") || x.
                         while((cOutput = brm.readLine()) != null)
                         {   
 //                            work.add("New Entry"); 
-                           if()
-                           System.out.println(cOutput);
-                           leg[m++] = cOutput;
+                           if(!map.get(cOutput)) 
+                           { map.put(cOutput, true);
+                             System.out.println(cOutput);
+                             leg[m++] = cOutput;
+                           }  
                         }
 //                         for(int i=0;i<=m;i++)
 //                            work.add(leg[i]);

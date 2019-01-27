@@ -46,10 +46,14 @@ public class Search {
 //        System.out.println("Working");
 //        SearchPage sp = new SearchPage();
 //        sp.setVisible(true);
-        BranchWise world = new BranchWise();
-        world.setVisible(true);
-//        SearchPage page = new SearchPage();
-//        page.setVisible(true)
+//        System.setProperty("http.proxyHost", "172.31.102.14");
+//        System.setProperty("http.proxyPort", "3128");
+//        System.setProperty("https.proxyHost", "172.31.102.14");
+//        System.setProperty("https.proxyPort", "3128");
+//        BranchWise world = new BranchWise();
+//        world.setVisible(true);
+        SearchPage page = new SearchPage();
+        page.setVisible(true);
         Properties properties=new Properties();
         youtube=new YouTube.Builder(Auth.HTTP_TRANSPORT,Auth.JSON_FACTORY, (HttpRequest request) -> {
         }).setApplicationName("youtube-cmdline-search-sample").build();
@@ -77,7 +81,7 @@ public class Search {
         }
     }
     
-    private static void work() throws IOException{
+    public static void work() throws IOException{
         String pythonScriptPath = "C:\\Users\\soumy\\.idea\\keyword_extraction.py";
         String classificationPath = "C:\\Users\\soumy\\Desktop\\sentiment_analysis.py";
         String[] cmd = {mainPath,pythonScriptPath};
@@ -116,7 +120,7 @@ public class Search {
                      }        
     }
     
-    private static String getInputQuery() throws IOException{
+    public static String getInputQuery() throws IOException{
         String inputQuery="";
         System.out.println("Please enter a search item");
         BufferedReader bReader=new BufferedReader(new InputStreamReader(System.in));
@@ -128,7 +132,7 @@ public class Search {
         return inputQuery;
     }
             
-    private static void prettyPrint(Iterator<SearchResult> iterator, String query) {
+    public static void prettyPrint(Iterator<SearchResult> iterator, String query) {
         System.out.println("\n=============================================================");
         System.out.println(
                 "   First " + NUMBER_OF_VIDEOS_RETURNED + " videos for search on \"" + query + "\".");
@@ -217,7 +221,7 @@ public class Search {
  
     }
 
-    private static void commentParsing (String videoId) {
+    public static void commentParsing (String videoId) {
         try{
 //            FileOutputStream commentStream=new FileOutputStream(commentsDataset);
             

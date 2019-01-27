@@ -28,6 +28,11 @@
             <version>0.0.1-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+          <groupId>com.jtattoo</groupId>
+         <artifactId>JTattoo</artifactId>
+          <version>1.6.7</version>
+         </dependency>
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>

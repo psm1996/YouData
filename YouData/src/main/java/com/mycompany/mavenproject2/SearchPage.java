@@ -10,20 +10,29 @@ import static com.mycompany.mavenproject2.Search.commentStream;
 import static com.mycompany.mavenproject2.Search.commentsDataset;
 import static com.mycompany.mavenproject2.Search.datasetfile;
 import static com.mycompany.mavenproject2.Search.videofile;
+import java.awt.Desktop;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.Console;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -45,8 +54,10 @@ public class SearchPage extends javax.swing.JFrame {
     public static String commentsDataset = "C:\\Users\\soumy\\Desktop\\CommentsDataset.txt";
     public static FileOutputStream commentStream;
     public static String mainPath = "C:\\Users\\soumy\\AppData\\Local\\Programs\\Python\\Python36\\python";
+    DefaultListModel dlm;
 
     public SearchPage() {
+        super("Search Page");
         initComponents();
     }
 
@@ -61,9 +72,15 @@ public class SearchPage extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jMenu1 = new javax.swing.JMenu();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         videoText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         searchButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -71,11 +88,21 @@ public class SearchPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        videoText.setText("Search for vidoes here");
+        videoText.setToolTipText("Search for vidoes here");
+        videoText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                videoTextActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Please search for the keyword here");
 
+        searchButton.setBackground(new java.awt.Color(255, 0, 0));
+        searchButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,33 +110,87 @@ public class SearchPage extends javax.swing.JFrame {
             }
         });
 
+        jList1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 10, true));
+        jList1.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jList1MousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jButton2.setBackground(new java.awt.Color(255, 0, 0));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("BACK");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 0), 2));
+        jPanel1.setForeground(new java.awt.Color(102, 0, 102));
+
+        jLabel2.setFont(new java.awt.Font("Georgia", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("YouData");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(273, 273, 273)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(238, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(25, 25, 25))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(videoText, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(videoText)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(videoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton))
+                    .addComponent(videoText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(591, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(824, 710));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
@@ -143,6 +224,41 @@ public class SearchPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchButtonActionPerformed
 
+    private void jList1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MousePressed
+        // TODO add your handling code here:
+         
+              String x = jList1.getSelectedValue();   
+//              try {
+//                   Runtime r = Runtime.getRuntime();
+//                   r.exec("start chrome "+new URL);
+//                   }  
+//              catch (Exception e) {
+//                      e.printStackTrace();
+//                     }
+               Desktop desktop=Desktop.getDesktop();
+
+                try{
+                  desktop.browse(new URI(x));
+                }    
+                 catch(IOException e){
+                 }                
+                 catch (URISyntaxException ex) {
+            Logger.getLogger(SearchPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jList1MousePressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        Home ob=new Home();
+        ob.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void videoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_videoTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_videoTextActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -156,9 +272,24 @@ public class SearchPage extends javax.swing.JFrame {
        Process proc = pbuild.start();
         BufferedReader brm = new BufferedReader(new InputStreamReader(proc.getInputStream()));
                        String cOutput;
+                       ArrayList<String> links = new ArrayList<>();
+                       ArrayList<String> pix = new ArrayList<>();
+                       int a = 0;
                         while((cOutput = brm.readLine()) != null)
-                        { System.out.println(cOutput);
+                        { cOutput = cOutput.replace(a+"    ","");
+                          a++;
+                          String link = "https://www.youtube.com/watch?v=" + cOutput;
+                          String Thumbnail = "https://img.youtube.com/vi/" + cOutput + "/0.jpg";
+                          System.out.println(Thumbnail);
+//                          System.out.println(link);
+                          links.add(link);
+//                          pix.add(Thumbnail);
                         }
+                     dlm = new DefaultListModel();
+                     for(int i=0;i<links.size()-1;i++){
+                       dlm.add(i, links.get(i));    
+                     }
+             jList1.setModel(dlm);
     }
     
     public static void main(String args[]) {
@@ -194,9 +325,15 @@ public class SearchPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField videoText;
     // End of variables declaration//GEN-END:variables
@@ -335,4 +472,10 @@ public class SearchPage extends javax.swing.JFrame {
             System.err.println(e);
         }
     }
+
+    private String GetTitle(String cOutput) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }
