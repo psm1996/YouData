@@ -2,16 +2,11 @@ commentText	importantComment
 Love your work buddy	0
 Thank you so much for this course. It made me learn so much and prepare well for the final exam	0
 Sir....first i want to say u that ...great job and easily understand your explaination....But sir i m diploma holder of ece branch so sir please made a spcial video for best digital electronic question  for inter vie...plssssss sir..	0
-Can you please make lecture on CAMP algorithm	1
-Are there videos on microcontroller ?	1
 "i'd like to learn electronics, which one first that i should learn, digital electronics or analog electronics?thank you btw, your channel really really help me. keep it up dude!"	0
 hi	0
 thank you sir.i passed my exam just becoz of ur lectures thanks a lot............	0
 "Sir me and all of my classmates are thankfull to u for such a good lecture series ,because of your lectures only we were able to clear our concepts in de."	0
-"please show me how to design a digital chip,that is able to make some decisions and display output using gates"	1
-Great job yrr i love your videos u teach awsm	0
-solve answer convert the decimal equalent to binary number (123.786)base 10	0
-suprbb explanation	0
+
 Your videos are so help full sir. Thanks a lot.	0
 Sir make video for gate preparation for CSE branch I'm student of 2nd year pls	1
 Plz provide lectures on SAP 1	1
@@ -20,12 +15,13 @@ please add videos on microprocessors.	1
 a>o should have upward parabola.	0
 NESOOO we need computer architecture :(	1
 "Thank you so much for such a wonderful Course,  Content and Delivery is amazing!  Just one request, Can you upload videos based on Memories_?"	1
-Neso academy is the best of all	0
-make video for  logic families	1
+NCan you please make lecture on CAMP algorithm	1
+Are there videos on microcontroller ?	1
 "Thank you so much for tutorials that helped me and alot of people..But I want u to upload more for advance digital..Like how to make flip-flop pr any other circuit using mux,encoder decoder ,counters or simple gates...Hope u'll see my comment and work on it.(it'll b ver helpful for people like me)"	1
 i love it! how do I download the whole playlist? please help. thanks	0
 Thank u so much sir..Now i am feeling very well after watching these lectures....U r great sir..	0
 hgchgvfhgf	0
+dffgjyhmfb fhtjhasd tm 0
 PRO TIP:Watch all vids at 1.5x or 2x speed	0
 Nice explain sir	0
 "SIR watched yr video on WHAT IS A SIGNAL As always i liked yr above video and understood which one we call a signal and which one not..To tell frankly i did not know/realise that if a current is not changing with respect to time, then it is not called a signal.Yr example of an equation explained there in clearly helps the above concept..  While Analogue signal is clear to me, i will await to understand what a DIGITAL SIGNAL is.Thanking u Vatsa"	0
@@ -175,7 +171,7 @@ very good	1
 "Sir, when r u going to release the electrical subjectes. We are waiting"	0
 Sir can't describe the happiness!This New year is going to be digital for me.Happy New Year Sir.	0
 I think there are lot of helpful lectures......i really thankful to NESO academy which help me in my exam to clear concept in digi electronics....and this academy provide best lectures...so everyone go for it...i give it 5/5	0
-aapke videos se padh k exam diya aur pass bhi na ho paya�	0
+aapke videos se padh k exam diya aur pass bhi na ho paya	0
 Sir your lectures are very much useful	1
 Sir plz upload electrical machines and power system lectures	0
 just a white guy checkin shit out. WHATS UP INDIA	1
@@ -183,7 +179,7 @@ plz provide a video on programmable logic devices plz...	1
 Please upload lectures on ADC and DAC also.	0
 plz include hindi also in your videos for better understanding...	0
 "Sir..,I am extremly Thankyou for you and video devolopment team for bringing these videos in frond of us.., because of this , i have scored nice marks in the xams.. GOD may bless you....Thankyou......"	1
-"Neso Academy, sir i request you to please upload videos on more engineering subjects like- Electrical Technology, Engineering Mechanics, Engineering Physic, if possible. It would be great help for us, that you can't even imagine😂. Please, it's an earnest request from a subscriber."	0
+"Neso Academy, sir i request you to please upload videos on more engineering subjects like- Electrical Technology, Engineering Mechanics, Engineering Physic, if possible. It would be great help for us, that you can't even imagineð. Please, it's an earnest request from a subscriber."	0
 thank for this video developments.	0
 great videos and nicely cover each topic .....thank you sir..your digital videos help me a lot in my third  semester(III)  .	0
 check out this video	0
@@ -261,7 +257,7 @@ Sir please upload some videos for transistor because I desperately need them . I
 Sir please upload videos of RAM and ROM	1
 sir please upload the videos of logic family . i'm very much fond of ur videos so please upload the logic families videos	1
 sir please tell me binary addtion of 15 and 4 is not equal to 19 why?	0
-"plz upload the tutorial for siso,universal�and bidirectional shift registers."	1
+"plz upload the tutorial for siso,universal and bidirectional shift registers."	1
 where is the lecture for PISO AND universal shift register	1
 where is the lecture 4 PISO register	1
 plz upload some videos on op-amp also	1
@@ -335,7 +331,7 @@ Anyone from Mes Kuttipuram	0
 Anyone from KTU?	0
 Extremely Helpful!!!Very Well Explained....Thank You Guys For making TOC easy for me....	0
 I spent forever trying to find some good videos about automata and now I've found them!	0
-"Your tutorials are perfect! But why didnt you include Kleene's Theorem. Like FA1+FA2, FA1*FA2, FA1∩FA2."	1
+"Your tutorials are perfect! But why didnt you include Kleene's Theorem. Like FA1+FA2, FA1*FA2, FA1â©FA2."	1
 Does it cover entire GATE syllabus of TOC ??	0
 Formal language and automata theory & Theory of computation &automata theory are same are it has any difference??	0
 I want DFA for number of a's greater than number of b's	0
@@ -368,7 +364,7 @@ Please explain the output of input 'aaaaabbbbbb' for lacture 29	0
 Sir all vedio very good in explanation And I request you please upload the artificial intelligence vedios for computer science students	1
 sai shimonson's lectures are abridged to simple videos. I was looking for this. Great work.	0
 Coz of u  I pass my  TOC exam thnk u so much plzz make video in compiler designer	0
-Galgotia waalo like kardena..�	0
+Galgotia waalo like kardena..	0
 "I learned the best from this chennel ....carry on,sir......"	0
 does compiler first converts in binary and then check for errors? or first check for errors and then convert into binary??	0
 Great work! Very clear and concise explanations with easy to understand examples.	0
@@ -393,7 +389,7 @@ Thnx a lot Neso for getting my paper cleared your videos were quite helpful. Kee
 "Thank you sir. Your lectures are very useful. Sir, it will be really helpful if you can do a lecture on ""Compter Graphics""."	1
 "Sir,what are the types of mathematical models in TOC?"	0
 Thank u so mch sr....	0
-Anyone from Amity�	0
+Anyone from Amity	0
 Sir Please make a series on microprocessors and embedded systems.	1
 "sir please upload the video of merger table , merger graph,testing table and testing graph"	1
 Very understandable thank you sir...	0
@@ -430,7 +426,7 @@ Very nice video..and the background music at the end..which song is it?	0
 "Hey, I would like to ask, whether you can share information about a book with the same material that you cover in your video?"	0
 The best channel on Engineering courses in Youtube ....	0
 Excellent way of teaching.. It was really helpful. Look for fresher jobs here - postngrow.com	0
-"The strings that will be accepted by language L = {0^3^n+1 : n ≥ 0}, if n = (0,1,2) how to solve above problem."	0
+"The strings that will be accepted by language L = {0^3^n+1 : n â¥ 0}, if n = (0,1,2) how to solve above problem."	0
 Very Informative Thank YOu Sir Thanks Neso Academy	0
 Watched the whole series in 1.5 speed before exam. You explained everything clearly. Thanks bruh.	0
 thank sir	0
@@ -534,7 +530,7 @@ In the example of overhead tank you said elecrictity is signal . And you already
 Sir..plz upload ur lecture on control system...	1
 Thanks alot sir your videos are best thanks alot i m studying from your videos	0
 fluid mechanics pls..	1
-Sir which software you using sir pls tell me �	0
+Sir which software you using sir pls tell me 	0
 Sir please upload RCC lectures also	1
 "thank you so much, sir ..it is very helpful"	0
 thanks a lot sir; best lectures ; have gone through all your videos	0
@@ -576,7 +572,7 @@ Thankyou sir	0
 Sir plz upload ur lectr For 4th chptr is Theorem As soon as posible	1
 Please upload remaining syllabus as early as possible GATE 2019 is on February	1
 thank u sir for providing free lectures....kindly complete playlists of {power system} videos as soon as possible...	0
-Thank u so much sir....well explained�	0
+Thank u so much sir....well explained	0
 upload the video about tv transmitter and reciever	1
 Sir please upload all lectures of network theory	1
 Sir ... here is no new vedios without these ... how to find daily 2 videos  . Please tell me sir?	0
@@ -622,7 +618,7 @@ super	0
 Sir.... I am.... Tamil medium student.... How get the material..... I cannot understand more points..... So how easily understand points and how to get metirials	0
 Sir can you provid the materials of all subjects of CS to me .My mail is evpr768@gmail.com	1
 Sir i can't pay for your gate course can you teach me for free . I want to clear gate	1
-Sir I want to understand full lecture of memory management & file management in Os Plese provide me sir�	1
+Sir I want to understand full lecture of memory management & file management in Os Plese provide me sir	1
 thank u so much for the lectures you provide sir....even a nontechnical students can get d subjects through ur lectures....	0
 "I will watch complete course,thank you"	0
 Explain about most frequently used Page replacement algorithem	1
@@ -779,7 +775,7 @@ Sir you said expanded opcode(Concept in domain of addressing modes). I think you
 "1. when i commented the #include<stdio.h> part, it still showed Neso academy. 2. when i removed the semicolon, it showed error. 3. when i removed int from main, it still showed Neso Academy. 4. return 100; yields the same result just as return 0; 5. return a; shows error. but return 'a'; shows Neso academy. 6. removal of ; after return showed error message. thank you."	0
 after commenting out stdio.h  the code is still running.why?	0
 Sir app lecture bhut late upload karte ho	0
-thank you so much ....I have request please put the English�translation I cant understand all your speaking	0
+thank you so much ....I have request please put the English translation I cant understand all your speaking	0
 It would be great to have Eng subtitle. Im truly Thank you for your hard work sir.	0
 sir pls take lectures on java	1
 add/keep subtitles	0
